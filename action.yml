@@ -1,0 +1,15 @@
+# action.yml
+name: 'Swift Build Lambda'
+description: 'Builds and packages an AWS Lambda written in Swift.'
+inputs:
+  executable:
+    description: 'Name of executable'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.executable }}
+branding:
+  icon: 'code'
+  color: 'orange'
