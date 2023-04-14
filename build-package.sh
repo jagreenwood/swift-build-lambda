@@ -16,7 +16,7 @@
 
 EXECUTABLE=$1
 TARGET=".build/lambda/$EXECUTABLE"
-OUTPUT="/output"
+OUTPUT="output"
 
 rm -rf "$OUTPUT"
 mkdir -p "$OUTPUT"
@@ -30,9 +30,11 @@ cp ".build/release/$EXECUTABLE" "$TARGET/"
 
 echo "Packaging Lambda"
 ldd ".build/release/$EXECUTABLE" | grep swift | awk '{print $3}' | xargs cp -Lv -t "$TARGET"
-cd "$TARGET"
+pushp "$TARGET"
 ln -s "$EXECUTABLE" "bootstrap"
 zip --symlinks lambda.zip *
 
-mv lambda.zip "$OUTPUT/"
+popd
+
+cp "$TARGET/lambda.zip" "$OUTPUT/"
 echo "Done"
