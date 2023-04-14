@@ -16,10 +16,6 @@
 
 EXECUTABLE=$1
 TARGET=".build/lambda/$EXECUTABLE"
-OUTPUT="/output"
-
-rm -rf "$OUTPUT"
-mkdir -p "$OUTPUT"
 
 echo "Building Lambda"
 swift build --product "$EXECUTABLE" -c release
@@ -34,5 +30,5 @@ cd "$TARGET"
 ln -s "$EXECUTABLE" "bootstrap"
 zip --symlinks lambda.zip *
 
-mv lambda.zip "$OUTPUT/"
+mv lambda.zip "$GITHUB_WORKSPACE/"
 echo "Done"
