@@ -5,11 +5,17 @@ inputs:
   executable:
     description: 'Name of executable'
     required: true
+  architecture:
+    description: 'The platform this Lambda should be built for. (x86_64 or arm64).'
+    required: false
+    default: 'x86_64'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.executable }}
+  env: 
+    PLATFORM: ${{ inputs.architecture }}
 branding:
   icon: 'code'
   color: 'orange'
