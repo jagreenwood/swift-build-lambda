@@ -14,8 +14,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.executable }}
-  env: 
-    PLATFORM: ${{ inputs.architecture }}
 branding:
   icon: 'code'
   color: 'orange'
