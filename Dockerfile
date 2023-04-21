@@ -1,7 +1,7 @@
 FROM swift:5.7-amazonlinux2
 
-ARG INPUT_ARCHITECTURE
-RUN echo "INPUT_ARCHITECTURE = $INPUT_ARCHITECTURE"
+ARG PLATFORM
+RUN echo "PLATFORM = $PLATFORM"
 RUN yum -y install zip
 
 COPY build-package.sh /build-package.sh
