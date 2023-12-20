@@ -15,7 +15,7 @@ File written to `$GITHUB_WORKSPACE/lambda.zip`
 ## Usage
 
 ```yaml
-uses: jagreenwood/swift-build-lambda@1.0.1
+uses: jagreenwood/swift-build-lambda@5.8
     with:
         executable: 'ExecutableName'
 ```
